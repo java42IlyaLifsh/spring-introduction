@@ -1,5 +1,6 @@
 package telran.spring;
 
+import java.util.Map;
 import java.util.Scanner;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +9,8 @@ import javax.annotation.PreDestroy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import telran.spring.service.SenderService;
 
 @SpringBootApplication
 public class SpringIntroductionApplication {
@@ -18,13 +21,24 @@ public class SpringIntroductionApplication {
 		Scanner scanner = new Scanner(System.in);
 		Sender sender = ctx.getBean(Sender.class);
 		System.out.println(sender.getSenderGreeting());
+		
 		while(true) {
-			System.out.println("Enter exit for graceful shutdown");
+			System.out.println("Enter service type or exit for graceful shutdown");
 			String line = scanner.nextLine();
 			if (line.equals("exit")) {
 				ctx.close();
 				break;
 			}
+			SenderService service = sender.getServiceByType(line);
+			if (service == null) {
+				System.out.printf("service %s is not implemented\n", line);
+			} else {
+				System.out.println("Type message");
+				line = scanner.nextLine();
+				service.send(line);
+			}
+			
+			
 			
 		}
 	}
