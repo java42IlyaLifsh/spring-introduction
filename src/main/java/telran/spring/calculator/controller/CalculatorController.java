@@ -24,6 +24,8 @@ public class CalculatorController {
 			return String.format("service %s is not implemented", request.operation);
 		}
 		if(request.operands.length == 2) {
+			// V.R. Look at CalculatorService.java, line 8
+			// One of these checks is redundant
 			Double res=service.calculate(request.operands);
 			String itog= "calculation: "+request.operands[0]+" "+request.operation+" "+request.operands[1]+ " = "+res;
 			System.out.println(itog);
