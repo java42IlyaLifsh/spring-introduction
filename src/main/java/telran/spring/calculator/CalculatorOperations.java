@@ -1,11 +1,9 @@
 package telran.spring.calculator;
-//IlyaL-51
+//IlyaL-HW51
 
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,9 +12,9 @@ import telran.spring.calculator.service.CalculatorService;
 @Component
 public class CalculatorOperations {
 	
-	Map<String, CalculatorService> mapServices;
+	public Map<String, CalculatorService> mapServices;
 	@Autowired
-	public CalculatorOperations(List<CalculatorService> services) {
+	 CalculatorOperations(List<CalculatorService> services) {
 		mapServices = services.stream().collect(Collectors.toMap(CalculatorService::getType, s -> s));
 	}
 	

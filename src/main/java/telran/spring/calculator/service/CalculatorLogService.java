@@ -1,5 +1,5 @@
 package telran.spring.calculator.service;
-//IlyaL-51
+//IlyaL-HW51
 
 import org.springframework.stereotype.Service;
 
@@ -10,11 +10,10 @@ public class CalculatorLogService implements CalculatorService {
 	public double calculate(double[] operands) {
 		return operandsValid(operands) ? 
 				Math.log(operands[1]) / Math.log(operands[0]) : 
-				Double.POSITIVE_INFINITY;
+				Double.NEGATIVE_INFINITY;
 	}
 
 	@Override
-	public String getType() {
-		return "log";
+	public String getType() {	return "log";
 	}
 }

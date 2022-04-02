@@ -1,5 +1,5 @@
 package telran.spring.calculator.service;
-//IlyaL-51
+//IlyaL-HW51
 
 
 public interface CalculatorService {

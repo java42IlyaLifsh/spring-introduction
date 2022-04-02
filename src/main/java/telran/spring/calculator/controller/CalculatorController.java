@@ -1,5 +1,5 @@
 package telran.spring.calculator.controller;
-//Ilyal-51
+//Ilyal-HW51
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import telran.spring.calculator.CalculatorOperations;
 import telran.spring.calculator.dto.CalculatorRequest;
 import telran.spring.calculator.service.CalculatorService;
-import telran.spring.dto.Message;
-import telran.spring.service.SenderService;
+
 
 @RestController
 @RequestMapping("/calculator")
@@ -28,8 +27,7 @@ public class CalculatorController {
 			Double res=service.calculate(request.operands);
 			String itog= "calculation: "+request.operands[0]+" "+request.operation+" "+request.operands[1]+ " = "+res;
 			System.out.println(itog);
-//			return "calculation has been done - see logs";
-			return itog;
+			return itog + "\n"+ "I am WEB Calculator. I can calculate: " + calculatorOperations.mapServices.keySet();
 
 		} else  {
 			String errorMessage = String.format("Incorrect number of operands is %d\n", 

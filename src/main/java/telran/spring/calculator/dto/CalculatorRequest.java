@@ -1,5 +1,5 @@
 package telran.spring.calculator.dto;
-//IlyaL-51
+//IlyaL-HW51
 
 
 public class CalculatorRequest {
