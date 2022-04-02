@@ -23,18 +23,13 @@ public class CalculatorController {
 		if (service == null) {
 			return String.format("service %s is not implemented", request.operation);
 		}
-		if(request.operands.length == 2) {
+
 			Double res=service.calculate(request.operands);
 			String itog= "calculation: "+request.operands[0]+" "+request.operation+" "+request.operands[1]+ " = "+res;
 			System.out.println(itog);
 			return itog + "\n"+ "I am WEB Calculator. I can calculate: " + calculatorOperations.mapServices.keySet();
 
-		} else  {
-			String errorMessage = String.format("Incorrect number of operands is %d\n", 
-												request.operands.length);
-			System.out.printf(errorMessage);
-			return errorMessage;
-		}
+
 	}
 
 }
